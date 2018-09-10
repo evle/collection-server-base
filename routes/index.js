@@ -4,10 +4,10 @@ var UA = require('ua-device');
 var moment = require('moment');
 var archiver = require('archiver');
 var fs = require('fs');
+var config = require('../config');
 
 const logPath = './logs/';
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
 
 var ua = new UA(req.get('user-agent'));
@@ -30,7 +30,7 @@ var uaDevice = ua.device;
     var priDay = moment().add(-1, 'days').format("YYYY-MM-DD") + '.log';
     
     var fileExist = fsExistsSync(logPath + priDay)
-    if(fileExist){
+    if(fileExist && config.logCompress){
       var output = fs.createWriteStream(logPath + priDay.split('.')[0]+'.zip');
       var archive = archiver('zip');
       archive.pipe(output);
