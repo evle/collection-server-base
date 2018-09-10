@@ -9,7 +9,8 @@
     "archiver": "^3.0.0",
     "body-parser": "~1.18.2",
     "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "express": "^4.16.3",
+    "mime": "^2.3.1",
     "moment": "^2.22.2",
     "morgan": "~1.9.0",
     "ua-device": "^0.1.10"
